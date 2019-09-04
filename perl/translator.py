@@ -63,32 +63,31 @@ class PerlTranslator:
         the full token to find the whitespace around the token string
         """
         # Extract start and end and prepare line for value extraction
-        start_line, start_col = tok.start
-        end_line, end_col = tok.end
+        absolute_start_line, start_col = tok.start
+        absolute_end_line, end_col = tok.end
         lines = tok.line.splitlines(keepends=True)
 
-        # If token is unprintable, add nothing
-        if tok.type in [tokenize.NEWLINE, tokenize.ENDMARKER, tokenize.DEDENT]:
-            self.last_line = end_line
-            self.last_col = end_col
-            return tok.string
+        # Adjust line numbers
+        # Line numbers are 1-indexed, but ``lines`` is 0-indexed
+        # ``tok.line`` starts at start_line
+        end_line = absolute_end_line - absolute_start_line
+        start_line = 0
+
+        # Skip empty
+        if not lines or (start_line == end_line and start_col == end_col):
+            return ""
 
         # Find any preceding whitespace missed from the last token
+        # Use the absolute line numbers
         buffer = []
-        if self.last_line != start_line:
+        if self.last_line != absolute_start_line:
             # We're on a new line
             self.last_col = 0
         if self.last_col < start_col:
             # Found missing whitespace, collect
             buffer.append(lines[0][self.last_col : start_col])
-        self.last_line = end_line
+        self.last_line = absolute_end_line
         self.last_col = end_col
-
-        # Adjust line numbers
-        # Line numbers are 1-indexed, but ``lines`` is 0-indexed
-        # ``tok.line`` starts at start_line
-        end_line -= start_line
-        start_line = 0
 
         # Extract token with whitespace
         if start_line == end_line:
@@ -376,4 +375,5 @@ def translate(src_generator):
 
 def translate_string(source):
     source_stream = io.StringIO(source).readline
-    return translate(source_stream)
+    translated = translate(source_stream)
+    return translated
