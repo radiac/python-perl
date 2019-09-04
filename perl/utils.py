@@ -2,6 +2,7 @@
 Utility functions for translated code
 """
 import builtins
+import re
 
 
 def reset_vars():
@@ -20,7 +21,7 @@ def re_match(match):
     # Clear vars so they don't persist between matches
     reset_vars()
 
-    if match:
+    if isinstance(match, re.Match):
         # Get named matches
         matches = match.groupdict()
 
