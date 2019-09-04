@@ -38,7 +38,7 @@ enhancements. There are therefore four different ways to use this module:
 
         #!/usr/bin/python3.7 -mperl
 
-3.  Import it before importing any of your code which uses it's syntax - usually in
+3.  Import it before importing any of your code which uses its syntax - usually in
     your ``__init__.py``::
 
         import perl
@@ -59,6 +59,75 @@ enhancements. There are therefore four different ways to use this module:
     or::
 
         $ python3.7 -m perl
+
+
+Features
+========
+
+Regular expression matching
+---------------------------
+
+Syntax::
+
+    val =~ /pattern/flags
+    # or
+    val =~ m/pattern/flags
+
+where ``pattern`` uses `Python's regex syntax`_, and ``flags`` is a subset of the
+characters ``AILMSXG``, which map Python's single character flags, plus ``g`` which
+mimics the global flag from Perl.
+
+When run without the global flag, the ``re.Match`` object is returned; any matched
+groups will be available as numbered dollar variables, eg ``$1``, and named groups will
+be available on ``$name``.
+
+When run with the global flag, the list of ``re.Match`` objects will be returned. No
+dollar variables will be set.
+
+.. _Python's regex syntax: https://docs.python.org/3/library/re.html#regular-expression-syntax
+
+Examples::
+
+    # Case insensitive match
+    value =~ /^foo (.+?) bar$/i
+    print(f"Matched {$1}")
+
+    # Use in a condition
+    if value =~ /^foo (.+?) bar$/i:
+        return $1
+
+    # Use as a global
+    matches = value =~ /foo (.+?) bar/gi;
+
+
+Regular expression replacement
+------------------------------
+
+Syntax:
+
+    val =~ s/pattern/replacement/flags
+
+where ``pattern`` uses `Python's regex syntax`_, and ``flags`` is a subset of the
+characters ``AILMSXG``, which map Python's single character flags, plus ``g`` which
+mimics the global flag from Perl to replace all occurrences of the match.
+
+Examples::
+
+    # Case insensitive global replacement
+    value =~ s/foo/bar/gi
+
+
+Dollar variables
+----------------
+
+Syntax::
+
+    $name
+    $number
+
+Dollar variables act like regular variables - they can be set and used as normal. They
+are primarily intended for use with regular expressions - each regex will remove all
+previous dollar variables, to avoid confusion as to whether they matched or not.
 
 
 Contributing
