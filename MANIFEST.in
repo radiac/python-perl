@@ -1,0 +1,6 @@
+include LICENSE
+include tox.ini
+recursive-include perl *
+recursive-include tests *
+global-exclude __pycache__
+global-exclude *.pyc

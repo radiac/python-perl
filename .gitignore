@@ -1,6 +1,13 @@
-.mypy_cache
-.vscode
-.coverage
-htmlcov
 __pycache__
 *.pyc
+
+.mypy_cache
+.coverage*
+.tox
+htmlcov
+
+*.egg-info
+.eggs
+
+build
+dist

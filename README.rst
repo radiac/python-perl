@@ -1,11 +1,11 @@
-=======================
-Perl as a Python module
-=======================
+========================
+Perl as a Python package
+========================
 
 Haven't you always dreamed of having the power of Perl at your fingertips when writing
 Python?
 
-Well, this module is proof that dreams can come true::
+Well, this package is proof that dreams can come true::
 
     >>> import perl
     >>> value = "Hello there"
@@ -16,6 +16,9 @@ Well, this module is proof that dreams can come true::
     >>> value =~ s/there/world/
     >>> print(value)
     Hello world
+
+
+Note: This is very silly and probably shouldn't go anywhere near production code.
 
 
 Installation
