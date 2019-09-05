@@ -1,5 +1,7 @@
+include README.rst
 include LICENSE
 include tox.ini
+include setup.cfg
 recursive-include perl *
 recursive-include tests *
 global-exclude __pycache__
