@@ -20,6 +20,16 @@ Well, this package is proof that dreams can come true::
 
 Note: This is very silly and probably shouldn't go anywhere near production code.
 
+* Project site: http://radiac.net/projects/python-perl/
+* Source code: https://github.com/radiac/python-perl
+
+.. image:: https://travis-ci.org/radiac/python-perl.svg?branch=master
+    :target: https://travis-ci.org/radiac/python-perl
+
+.. image:: https://coveralls.io/repos/radiac/python-perl/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/radiac/python-perl?branch=master
+
+
 
 Installation
 ============
