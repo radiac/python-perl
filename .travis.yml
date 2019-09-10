@@ -6,3 +6,13 @@ script:
 - tox
 env:
 - TOXENV=py37 DEPLOY=true
+deploy:
+  provider: pypi
+  user: radiac
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: radiac/python-perl
+    condition: "$DEPLOY = true"
+  password:
+    secure: HNPnNjCPch9cozljpT/2GTSwrT0M/ZjSEHM/6wv0BCBoJXFwz0Z7dQrloFEkB35qYYeoTEyO0ZTLYton3CNzYJoEiAK3eFYwZ8X0WWR5AzNOK1MqxKY3wkqyC1vALvVw9fQ3uLWMhJK13HpCwaTwiUB15zpASP3i1GB42wr6sGGumdp89k7dwWbJdFnmaDOTY9YwYcHfg8hE3vOTPcC0yo7VJdSnfoaw9fRvjMVmSFDddWWor8ijAWPMBrGGEt49/sUvGEf5j0+EeFtKcQFLbNQ7uk0KIQkgHXkgLpVgDUdMuNsQycWt8nCFhppv0DdGssmtuLsp/JsCEldUJs7cWzYuoN34ia+rh70a9svSPAPnxXreW0+hyde3jP2RQMfuw/YCHPxm8sF6UA1tVU+OzVQutwnHm69lAIK/u/GfcyfEzUjZEzmsgkjhDhPIkMe1sDhwFf1pWTy9ebjhA4JCytXDsBUkxUIIg96VN0I0sZFaf9BHtd3N3/sMCknwQRY5UHyRVpLr8TdCaN+qK8vSJEtVj3fhySAWd9EgeBIe6eNW4tV3qGXuM+w1Az08jMPbdcOMkzqi2j9g+LWUUGUTC4Dg1Zd8gVEzZEcmvHpJ8TP5/rB0M3oiLjzcQ4uO35XMcZ4uw3Bsj2/N0jFZMr+mflfZU/GozqALHZ7Wxs1vUfg=
