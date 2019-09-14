@@ -116,7 +116,7 @@ Examples::
 Regular expression replacement
 ------------------------------
 
-Syntax:
+Syntax::
 
     val =~ s/pattern/replacement/flags
 
