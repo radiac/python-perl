@@ -30,3 +30,26 @@ def test_utils__re_match():
 
     # Clean up builtins
     reset_vars()
+
+
+def test_utils__re_match_global():
+    """
+    Match with global flag
+
+    example::
+
+        var =~ /foo/g
+    """
+    matches_iter = re.finditer(r"(.+?) ", "one two three four ")
+    assert hasattr(matches_iter, "__iter__")
+    matches = list(matches_iter)
+    assert len(matches) == 4
+    assert matches[0].groups() == ("one",)
+    assert matches[1].groups() == ("two",)
+    assert matches[2].groups() == ("three",)
+    assert matches[3].groups() == ("four",)
+
+    returned_matches_iter = re_match(re.finditer(r"(.+?) ", "one two three four "))
+    assert hasattr(returned_matches_iter, "__iter__")
+    returned_matches = list(returned_matches_iter)
+    assert [m.groups() for m in matches] == [m.groups() for m in returned_matches]
