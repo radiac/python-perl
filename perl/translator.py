@@ -1,4 +1,5 @@
 import io
+import re
 import tokenize
 from enum import Enum
 
@@ -128,10 +129,10 @@ class PerlTranslator:
                 continue
 
             #
-            # Convert $1 (as long as we're not collecting)
+            # Convert $1 (as long as we're not in a regex)
             #
 
-            if self.collecting_match != CollectState.ACTIVE:
+            if self.collecting_match == CollectState.WAITING:
                 if tok.type == tokenize.ERRORTOKEN and tok.string == "$":
                     self.dollar = True
                     continue
@@ -327,7 +328,10 @@ class PerlTranslator:
             ]
 
         else:
+            # Build replace  and covert any backrefs
             replace = "".join(self.replace)
+            replace = re.sub(r"\$(\w+)", r"\\g\g<1>", replace)
+
             if self.is_global:
                 # By default the count is unlimited
                 count = ""
@@ -338,7 +342,7 @@ class PerlTranslator:
             # Regex needs to reset the vars first in case it's a None
             python = [
                 f"{whitespace}{variable} = __perl__reset_vars() or ",
-                f"re.sub(r'{match}', '{replace}', {variable}",
+                f"re.sub(r'{match}', r'{replace}', {variable}",
                 f"{count}{flags})",
             ]
 

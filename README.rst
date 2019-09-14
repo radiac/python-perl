@@ -129,6 +129,9 @@ Examples::
     # Case insensitive global replacement
     value =~ s/foo/bar/gi
 
+    # Backreferences
+    value =~ s/(.+?) (?<name>.+?)/$1 $name/
+
 
 Dollar variables
 ----------------
