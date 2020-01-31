@@ -36,6 +36,8 @@ Installation
 
 This requires Python 3.7 or later.
 
+    pip install perl
+
 
 Usage
 =====
