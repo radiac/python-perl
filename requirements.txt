@@ -4,59 +4,137 @@
 #
 #    pip-compile
 #
-appdirs==1.4.3            # via black
-atomicwrites==1.3.0       # via pytest
-attrs==19.1.0             # via black, packaging, pytest
-backcall==0.1.0           # via ipython
-black==19.3b0             # via pytest-black
-certifi==2019.6.16        # via requests
-chardet==3.0.4            # via requests
-click==7.0                # via black, pip-tools
-coverage==4.5.4           # via coveralls, pytest-cov
+appdirs==1.4.3
+    # via black
+atomicwrites==1.3.0
+    # via pytest
+attrs==19.1.0
+    # via
+    #   black
+    #   packaging
+    #   pytest
+backcall==0.1.0
+    # via ipython
+black==19.3b0
+    # via pytest-black
+certifi==2019.6.16
+    # via requests
+chardet==3.0.4
+    # via requests
+click==7.0
+    # via
+    #   black
+    #   pip-tools
+coverage==4.5.4
+    # via
+    #   coveralls
+    #   pytest-cov
 coveralls==1.8.2
-decorator==4.4.0          # via ipython, traitlets
-docopt==0.6.2             # via coveralls
-entrypoints==0.3          # via flake8
-flake8==3.7.8             # via pytest-flake8
-idna==2.8                 # via requests
-importlib-metadata==0.19  # via pluggy, pytest
+    # via -r requirements.in
+decorator==4.4.0
+    # via
+    #   ipython
+    #   traitlets
+docopt==0.6.2
+    # via coveralls
+entrypoints==0.3
+    # via flake8
+flake8==3.7.8
+    # via pytest-flake8
+idna==2.8
+    # via requests
+importlib-metadata==0.19
+    # via
+    #   pluggy
+    #   pytest
 ipdb==0.12.2
-ipython-genutils==0.2.0   # via traitlets
-ipython==7.7.0            # via ipdb
-isort==4.3.21             # via pytest-isort
-jedi==0.15.0              # via ipython
-mccabe==0.6.1             # via flake8
-more-itertools==7.2.0     # via pytest
-mypy-extensions==0.4.1    # via mypy
-mypy==0.720               # via pytest-mypy
-packaging==19.1           # via pytest
-parso==0.5.1              # via jedi
-pexpect==4.7.0            # via ipython
-pickleshare==0.7.5        # via ipython
+    # via -r requirements.in
+ipython-genutils==0.2.0
+    # via traitlets
+ipython==7.7.0
+    # via ipdb
+isort==4.3.21
+    # via pytest-isort
+jedi==0.15.0
+    # via ipython
+mccabe==0.6.1
+    # via flake8
+more-itertools==7.2.0
+    # via pytest
+mypy-extensions==0.4.1
+    # via mypy
+mypy==0.720
+    # via pytest-mypy
+packaging==19.1
+    # via pytest
+parso==0.5.1
+    # via jedi
+pexpect==4.7.0
+    # via ipython
+pickleshare==0.7.5
+    # via ipython
 pip-tools==4.0.0
-pluggy==0.12.0            # via pytest
-prompt-toolkit==2.0.9     # via ipython
-ptyprocess==0.6.0         # via pexpect
-py==1.8.0                 # via pytest
-pycodestyle==2.5.0        # via flake8
-pyflakes==2.1.1           # via flake8
-pygments==2.4.2           # via ipython
-pyparsing==2.4.2          # via packaging
+    # via -r requirements.in
+pluggy==0.12.0
+    # via pytest
+prompt-toolkit==2.0.9
+    # via ipython
+ptyprocess==0.6.0
+    # via pexpect
+py==1.8.0
+    # via pytest
+pycodestyle==2.5.0
+    # via flake8
+pyflakes==2.1.1
+    # via flake8
+pygments==2.4.2
+    # via ipython
+pyparsing==2.4.2
+    # via packaging
 pytest-black==0.3.7
+    # via -r requirements.in
 pytest-cov==2.7.1
+    # via -r requirements.in
 pytest-flake8==1.0.4
+    # via -r requirements.in
 pytest-isort==0.3.1
+    # via -r requirements.in
 pytest-mypy==0.3.3
+    # via -r requirements.in
 pytest==5.0.1
-requests==2.22.0          # via coveralls
-six==1.12.0               # via packaging, pip-tools, prompt-toolkit, traitlets
-toml==0.10.0              # via black, pytest-black
-traitlets==4.3.2          # via ipython
-typed-ast==1.4.0          # via mypy
-typing-extensions==3.7.4  # via mypy
-urllib3==1.25.3           # via requests
-wcwidth==0.1.7            # via prompt-toolkit, pytest
-zipp==0.5.2               # via importlib-metadata
+    # via
+    #   -r requirements.in
+    #   pytest-black
+    #   pytest-cov
+    #   pytest-flake8
+    #   pytest-isort
+    #   pytest-mypy
+requests==2.22.0
+    # via coveralls
+six==1.12.0
+    # via
+    #   packaging
+    #   pip-tools
+    #   prompt-toolkit
+    #   traitlets
+toml==0.10.0
+    # via
+    #   black
+    #   pytest-black
+traitlets==4.3.2
+    # via ipython
+typed-ast==1.4.0
+    # via mypy
+typing-extensions==3.7.4
+    # via mypy
+urllib3==1.25.8
+    # via requests
+wcwidth==0.1.7
+    # via
+    #   prompt-toolkit
+    #   pytest
+zipp==0.5.2
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools==41.2.0        # via ipdb, ipython
+# setuptools
