@@ -9,6 +9,7 @@ atomicwrites==1.3.0       # via pytest
 attrs==19.1.0             # via black, packaging, pytest
 backcall==0.1.0           # via ipython
 black==19.3b0             # via pytest-black
+cached-property==1.5.1
 certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
 click==7.0                # via black, pip-tools

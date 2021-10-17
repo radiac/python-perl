@@ -1,5 +1,6 @@
 import os
-from setuptools import setup, find_packages
+
+from setuptools import find_packages, setup
 
 VERSION = "1.0.0"
 
@@ -15,7 +16,7 @@ setup(
     author_email="code@radiac.net",
     description=("Perl as a Python package"),
     license="BSD",
-    keywords="socket telnet",
+    keywords="perl",
     url="http://radiac.net/projects/python-perl/",
     long_description=read("README.rst"),
     classifiers=[
@@ -27,7 +28,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    install_requires=["six"],
+    install_requires=["cached_property"],
     setup_requires=["pytest-runner"],
     tests_require=[
         "pytest",

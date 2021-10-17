@@ -172,3 +172,16 @@ To run the example, use one of the following::
     $ ./example.py
     $ python3.7 -m perl example.py
     $ python3.7 example_importer.py
+
+
+Changelog
+=========
+
+1.1.0 (TBC):
+
+* Refactor translator to use linked list token chain rather than generator
+
+
+1.0.0 (2019-09-10):
+
+* Public release

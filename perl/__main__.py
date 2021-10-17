@@ -14,6 +14,7 @@ import argparse
 from .console import PerlConsole
 from .loader import load
 
+
 # Find and load the Python script
 parser = argparse.ArgumentParser(prog="python -m perl")
 parser.add_argument(

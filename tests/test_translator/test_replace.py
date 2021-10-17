@@ -9,16 +9,16 @@ def test_translate__replace():
 
 
 def test_translate__replace_with_backref():
-    assert (
-        translate_string("var =~ s/^foo (.+?) bar/foo $1 bar/")
-        == "var = __perl__reset_vars() or re.sub(r'^foo (.+?)', r'foo \\g<1> bar')"
+    assert translate_string("var =~ s/^foo (.+?) bar/foo $1 bar/") == (
+        "var = __perl__reset_vars() or re.sub(r'^foo (.+?) bar',"
+        " r'foo \\g<1> bar', var, count=1)"
     )
 
 
 def test_translate__replace_with_named_backref():
     assert translate_string("var =~ s/^foo (?P<named>.+?) bar/foo $named bar/") == (
         "var = __perl__reset_vars() or "
-        "re.sub(r'^foo (?P<named>.+?) bar', r'foo \\g<named> bar')"
+        "re.sub(r'^foo (?P<named>.+?) bar', r'foo \\g<named> bar', var, count=1)"
     )
 
 
